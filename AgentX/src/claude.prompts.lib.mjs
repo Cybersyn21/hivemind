@@ -1,102 +1,175 @@
-/**
- * Claude prompts module
- * Handles building prompts for Claude commands
- */
+// ============================================================================
+// МОДУЛЬ ПРОМПТОВ ДЛЯ CLAUDE AI
+// ============================================================================
+// Этот модуль отвечает за формирование промптов (инструкций), которые
+// отправляются Claude AI для решения GitHub Issues.
+//
+// Промпт состоит из двух частей:
+// 1. System Prompt - общие правила и поведение AI (как инженер должен работать)
+// 2. User Prompt - конкретная задача с деталями (issue, branch, feedback)
+//
+// Промпты критически важны - от их качества зависит насколько хорошо AI
+// решит задачу. Они содержат лучшие практики, собранные из сотен решённых issues.
+// ============================================================================
 
 /**
- * Build the user prompt for Claude
- * @param {Object} params - Parameters for building the user prompt
- * @returns {string} The formatted user prompt
+ * ПОСТРОЕНИЕ USER PROMPT (ПОЛЬЗОВАТЕЛЬСКОГО ПРОМПТА)
+ * ====================================================
+ * Формирует конкретное задание для Claude AI на основе GitHub Issue.
+ * Этот промпт отправляется каждый раз при запуске/продолжении работы.
+ *
+ * Что включает:
+ * - Ссылка на issue/PR который нужно решить
+ * - Подготовленная ветка и рабочая директория
+ * - Информация о форке (если используется --fork)
+ * - Contributing guidelines проекта
+ * - Feedback от пользователя (в режиме continue)
+ * - Уровень "думания" (--think low/medium/high/max)
+ *
+ * @param {Object} params - Параметры для построения промпта
+ * @returns {string} Отформатированный user prompt
  */
 export const buildUserPrompt = (params) => {
   const {
-    issueUrl,
-    issueNumber,
-    prNumber,
-    prUrl,
-    branchName,
-    tempDir,
-    isContinueMode,
-    forkedRepo,
-    feedbackLines,
-    owner,
-    repo,
-    argv,
-    contributingGuidelines
+    issueUrl,        // URL GitHub Issue (например: https://github.com/owner/repo/issues/123)
+    issueNumber,     // Номер issue (123)
+    prNumber,        // Номер PR (если уже создан)
+    prUrl,           // URL Pull Request
+    branchName,      // Название ветки для работы
+    tempDir,         // Временная директория с клоном репозитория
+    isContinueMode,  // true если это продолжение работы (--continue)
+    forkedRepo,      // URL форка (если используется --fork)
+    feedbackLines,   // Массив строк с feedback от пользователя
+    owner,           // Владелец репозитория (например: "deep-assistant")
+    repo,            // Название репозитория (например: "hive-mind")
+    argv,            // Аргументы командной строки
+    contributingGuidelines  // Contributing guidelines проекта
   } = params;
 
+  // Массив строк для построения промпта
   const promptLines = [];
 
-  // Issue or PR reference
+  // ----------------------------------------------------------------
+  // ССЫЛКА НА ISSUE ИЛИ PULL REQUEST
+  // ----------------------------------------------------------------
+  // В зависимости от режима (новая работа или продолжение), формируем
+  // ссылку на issue который нужно решить
   if (isContinueMode) {
+    // Режим продолжения - используем сохранённый issueNumber или prNumber
     promptLines.push(`Issue to solve: ${issueNumber ? `https://github.com/${owner}/${repo}/issues/${issueNumber}` : `Issue linked to PR #${prNumber}`}`);
   } else {
+    // Первый запуск - используем переданный URL
     promptLines.push(`Issue to solve: ${issueUrl}`);
   }
 
-  // Basic info
+  // ----------------------------------------------------------------
+  // БАЗОВАЯ ИНФОРМАЦИЯ О ПОДГОТОВЛЕННОМ ОКРУЖЕНИИ
+  // ----------------------------------------------------------------
+  // Hive Mind уже подготовил всё необходимое: клонировал репозиторий,
+  // создал ветку. Сообщаем Claude где он может работать.
   promptLines.push(`Your prepared branch: ${branchName}`);
   promptLines.push(`Your prepared working directory: ${tempDir}`);
 
-  // PR info if available
+  // ----------------------------------------------------------------
+  // ИНФОРМАЦИЯ О PULL REQUEST (если уже создан)
+  // ----------------------------------------------------------------
+  // Если PR уже существует (при продолжении работы), даём на него ссылку
   if (prUrl) {
     promptLines.push(`Your prepared Pull Request: ${prUrl}`);
   }
 
-  // Fork info if applicable
+  // ----------------------------------------------------------------
+  // ИНФОРМАЦИЯ О ФОРКЕ (если используется --fork режим)
+  // ----------------------------------------------------------------
+  // В fork-режиме мы работаем в форке репозитория (нет прямого доступа к основному репо).
+  // Это важно для Claude - он должен понимать где upstream, где fork.
   if (argv && argv.fork && forkedRepo) {
     promptLines.push(`Your forked repository: ${forkedRepo}`);
     promptLines.push(`Original repository (upstream): ${owner}/${repo}`);
 
-    // Check for GitHub Actions on fork and add link if workflows exist
+    // Ссылка на GitHub Actions в форке (для проверки CI)
     if (branchName && params.forkActionsUrl) {
       promptLines.push(`GitHub Actions on your fork: ${params.forkActionsUrl}`);
     }
   }
 
-  // Add contributing guidelines if available
+  // ----------------------------------------------------------------
+  // CONTRIBUTING GUIDELINES ПРОЕКТА
+  // ----------------------------------------------------------------
+  // Если у проекта есть CONTRIBUTING.md или инструкции по разработке,
+  // вставляем их в промпт чтобы Claude следовал стилю проекта
   if (contributingGuidelines) {
     promptLines.push('');
     promptLines.push(contributingGuidelines);
   }
 
-  // Add blank line
+  // Пустая строка для читаемости
   promptLines.push('');
 
-  // Add feedback info if in continue mode and there are feedback items
+  // ----------------------------------------------------------------
+  // FEEDBACK ОТ ПОЛЬЗОВАТЕЛЯ (только в режиме continue)
+  // ----------------------------------------------------------------
+  // Когда пользователь пишет комментарий к PR с feedback (например,
+  // "нужно исправить ещё и это"), мы передаём его Claude напрямую
   if (isContinueMode && feedbackLines && feedbackLines.length > 0) {
-    // Add each feedback line directly
     feedbackLines.forEach(line => promptLines.push(line));
     promptLines.push('');
   }
 
-  // Add thinking instruction based on --think level
+  // ----------------------------------------------------------------
+  // УРОВЕНЬ "ДУМАНИЯ" (--think флаг)
+  // ----------------------------------------------------------------
+  // Флаг --think позволяет просить Claude думать усерднее.
+  // Работает как триггер для extended thinking в Claude.
   if (argv && argv.think) {
     const thinkMessages = {
-      low: 'Think.',
-      medium: 'Think hard.',
-      high: 'Think harder.',
-      max: 'Ultrathink.'
+      low: 'Think.',           // Обычное думание
+      medium: 'Think hard.',   // Усиленное думание
+      high: 'Think harder.',   // Ещё более усиленное
+      max: 'Ultrathink.'       // Максимальное думание
     };
     promptLines.push(thinkMessages[argv.think]);
   }
 
-  // Final instruction
+  // ----------------------------------------------------------------
+  // ФИНАЛЬНАЯ ИНСТРУКЦИЯ
+  // ----------------------------------------------------------------
+  // "Proceed." - начни работу над задачей
+  // "Continue." - продолжи работу (если это continue-режим)
   promptLines.push(isContinueMode ? 'Continue.' : 'Proceed.');
 
-  // Build the final prompt
+  // Объединяем все строки в один промпт через перевод строки
   return promptLines.join('\n');
 };
 
 /**
- * Build the system prompt for Claude - simplified to avoid shell escaping issues
- * @param {Object} params - Parameters for building the prompt
- * @returns {string} The formatted system prompt
+ * ПОСТРОЕНИЕ SYSTEM PROMPT (СИСТЕМНОГО ПРОМПТА)
+ * ===============================================
+ * Формирует глобальные инструкции для Claude AI - КАК работать как инженер.
+ * Это огромный промпт, содержащий лучшие практики из сотен решённых issues.
+ *
+ * System Prompt отправляется один раз в начале сессии и определяет поведение AI.
+ * Он включает инструкции по:
+ * - Исследованию и анализу кода
+ * - Разработке и тестированию решений
+ * - Работе с git и GitHub
+ * - Взаимодействию с пользователем
+ * - Quality checks перед финализацией PR
+ *
+ * ВАЖНО: Этот промпт - результат эволюции. Каждая строка здесь появилась
+ * после того как мы столкнулись с проблемой и поняли что нужно явно указать AI.
+ *
+ * @param {Object} params - Параметры для построения промпта
+ * @returns {string} Отформатированный system prompt
  */
 export const buildSystemPrompt = (params) => {
   const { owner, repo, issueNumber, prNumber, branchName, argv } = params;
 
-  // Build thinking instruction based on --think level
+  // ----------------------------------------------------------------
+  // ИНСТРУКЦИЯ ДЛЯ EXTENDED THINKING (если --think флаг)
+  // ----------------------------------------------------------------
+  // Если пользователь указал --think, добавляем инструкцию которая
+  // говорит Claude думать на каждом шаге
   let thinkLine = '';
   if (argv && argv.think) {
     const thinkMessages = {
@@ -108,7 +181,28 @@ export const buildSystemPrompt = (params) => {
     thinkLine = `\n${thinkMessages[argv.think]}\n`;
   }
 
-  // Use backticks for jq commands to avoid quote escaping issues
+  // ----------------------------------------------------------------
+  // ГЛАВНЫЙ SYSTEM PROMPT
+  // ----------------------------------------------------------------
+  // Это огромная строка-инструкция для Claude AI.
+  //
+  // СТРУКТУРА ПРОМПТА:
+  // 1. Личность и ценности AI (кто ты, как ведёшь себя)
+  // 2. General guidelines (сохранение логов, фоновые процессы, chunking)
+  // 3. Initial research (как начинать работу, как исследовать issue)
+  // 4. Solution development (как писать код, тесты)
+  // 5. Preparing pull request (CI checks, style, finalization)
+  // 6. Workflow and collaboration (git, branches, commits)
+  // 7. Self review (проверка перед завершением)
+  //
+  // ПОЧЕМУ НЕ КОММЕНТИРУЕМ КАЖДУЮ СТРОКУ:
+  // - Промпт тщательно откалиброван, каждое слово на своём месте
+  // - Комментарии внутри текста промпта могут сбить AI с толку
+  // - Текст читается как инструкция, секции чётко разделены
+  //
+  // ВАЖНО: Используем template literals (`) чтобы избежать
+  // проблем с экранированием кавычек в jq командах и других местах.
+
   return `You are an AI issue solver. You prefer to find the root cause of each and every issue. When you talk, you prefer to speak with facts which you have double-checked yourself or cite sources that provide evidence, like quote actual code or give references to documents or pages found on the internet. You are polite and patient, and prefer to assume good intent, trying your best to be helpful. If you are unsure or have assumptions, you prefer to test them yourself or ask questions to clarify requirements.${thinkLine}
 
 General guidelines.
