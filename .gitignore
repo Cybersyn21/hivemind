@@ -1,0 +1,32 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+
+# Node modules (if using any build tools in the future)
+node_modules/
+
+# Build outputs (if using any build process)
+dist/
+build/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Keep the hive-mind files for now
+# hive-mind-main/
+# hive-mind-main.zip
