@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades en Venta | Casella & Casella</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:"#c29541",secondary:"#a07c34",emerald:"#25D366"}}}}</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>.whatsapp-float{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25D366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow:2px 2px 10px rgba(0,0,0,0.3);z-index:100;display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;animation:pulse 2s infinite}.whatsapp-float:hover{background-color:#128C7E;transform:scale(1.1)}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)}70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}</style>
+</head>
+<body class="font-sans">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-bold text-primary flex items-center">
+                <i class="fas fa-building text-primary text-2xl mr-3"></i>
+                <div class="flex flex-col"><span class="text-lg">Inmobiliaria</span><span>Casella & Casella</span></div>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="../index.html" class="hover:text-primary">Inicio</a>
+                <a href="servicios.html" class="hover:text-primary">Servicios</a>
+                <a href="venta.html" class="text-primary font-semibold">Venta</a>
+                <a href="alquiler.html" class="hover:text-primary">Alquiler</a>
+                <a href="terrenos.html" class="hover:text-primary">Terrenos</a>
+                <a href="comercial.html" class="hover:text-primary">Comercial</a>
+                <a href="tasaciones.html" class="hover:text-primary">Tasaciones</a>
+                <a href="asesoramiento.html" class="hover:text-primary">Asesoramiento</a>
+                <a href="nosotros.html" class="hover:text-primary">Nosotros</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-20 px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-5xl font-bold mb-6">Venta de Propiedades</h1>
+            <p class="text-xl">Encuentre su propiedad ideal en Villa Mercedes y San Luis</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Casa en venta" class="w-full h-80 object-cover rounded-xl shadow-lg">
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold mb-4 text-primary">Su Próxima Casa le Espera</h2>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        En Inmobiliaria Casella & Casella contamos con un amplio portafolio de propiedades en venta que se adaptan a diferentes necesidades y presupuestos. Desde acogedoras casas familiares hasta modernos departamentos, cada propiedad ha sido cuidadosamente seleccionada y verificada para garantizar la mejor inversión.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Nuestro servicio de venta incluye tasación profesional, asesoramiento personalizado durante todo el proceso de compra, verificación legal completa de la documentación, y acompañamiento hasta la firma de la escritura. Nos aseguramos de que cada paso sea transparente y seguro.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Trabajamos con propiedades ubicadas en las mejores zonas de Villa Mercedes y San Luis, priorizando ubicaciones con buen acceso a servicios, transporte, escuelas y comercios. Cada propiedad que ofrecemos cuenta con documentación en regla y está lista para escriturar.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Ya sea que busque su primera vivienda, una inversión rentable o un upgrade para su familia, nuestro equipo le ayudará a encontrar exactamente lo que necesita. Con más de 10 años de experiencia, conocemos el mercado local como nadie y podemos asesorarle sobre las mejores oportunidades disponibles.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-xl mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-center">¿Qué Incluye Nuestro Servicio de Venta?</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Tasación Profesional</h4>
+                            <p class="text-gray-700">Valuación precisa basada en el mercado actual</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Asesoramiento Legal</h4>
+                            <p class="text-gray-700">Verificación completa de documentación</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Financiamiento</h4>
+                            <p class="text-gray-700">Asesoramiento en opciones de crédito hipotecario</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Acompañamiento Total</h4>
+                            <p class="text-gray-700">Desde la primera visita hasta la escritura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-6">Propiedades Destacadas en Venta</h3>
+                <p class="text-gray-600 mb-8">Consulte por nuestro catálogo actualizado de propiedades disponibles</p>
+                <a href="https://wa.me/5492657609278?text=Hola,%20me%20interesa%20consultar%20sobre%20propiedades%20en%20venta" class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-lg inline-block transition">
+                    <i class="fab fa-whatsapp mr-2"></i>Ver Propiedades Disponibles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400">Betbeder 46, Villa Mercedes | 2657-609278 | horaciocasella@yahoo.com.ar</p>
+            <p class="text-gray-500 text-sm mt-4">© 2025 Inmobiliaria Casella & Casella</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5492657609278" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+</body>
+</html>
