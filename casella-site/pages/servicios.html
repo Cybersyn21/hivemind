@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios | Inmobiliaria Casella & Casella</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#c29541",
+                        secondary: "#a07c34",
+                        emerald: "#25D366"
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-bold text-primary flex items-center">
+                <i class="fas fa-building text-primary text-2xl mr-3"></i>
+                <div class="flex flex-col">
+                    <span class="text-lg">Inmobiliaria</span>
+                    <span class="text-xl">Casella & Casella</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="../index.html" class="hover:text-primary transition">Inicio</a>
+                <a href="servicios.html" class="text-primary font-semibold">Servicios</a>
+                <a href="venta.html" class="hover:text-primary transition">Venta</a>
+                <a href="alquiler.html" class="hover:text-primary transition">Alquiler</a>
+                <a href="terrenos.html" class="hover:text-primary transition">Terrenos</a>
+                <a href="comercial.html" class="hover:text-primary transition">Comercial</a>
+                <a href="tasaciones.html" class="hover:text-primary transition">Tasaciones</a>
+                <a href="asesoramiento.html" class="hover:text-primary transition">Asesoramiento</a>
+                <a href="nosotros.html" class="hover:text-primary transition">Nosotros</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <a href="../index.html" class="block py-2">Inicio</a>
+            <a href="servicios.html" class="block py-2 text-primary font-semibold">Servicios</a>
+            <a href="venta.html" class="block py-2">Venta</a>
+            <a href="alquiler.html" class="block py-2">Alquiler</a>
+            <a href="terrenos.html" class="block py-2">Terrenos</a>
+            <a href="comercial.html" class="block py-2">Comercial</a>
+            <a href="tasaciones.html" class="block py-2">Tasaciones</a>
+            <a href="asesoramiento.html" class="block py-2">Asesoramiento</a>
+            <a href="nosotros.html" class="block py-2">Nosotros</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-20 px-4">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Nuestros Servicios</h1>
+            <p class="text-xl" data-aos="fade-up" data-aos-delay="200">Soluciones integrales en el mercado inmobiliario de Villa Mercedes y San Luis</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    En Inmobiliaria Casella & Casella ofrecemos un servicio completo y personalizado para todas sus necesidades inmobiliarias. Con más de 10 años de experiencia en Villa Mercedes y San Luis, nos especializamos en brindar soluciones que se adaptan a cada cliente, garantizando transparencia, profesionalismo y confianza en cada operación.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                    Nuestro equipo de profesionales matriculados está comprometido con ofrecerle el mejor asesoramiento en cada etapa del proceso, ya sea que esté buscando comprar, vender, alquilar o invertir en propiedades. Trabajamos con dedicación para hacer realidad sus proyectos inmobiliarios.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Descubra cómo podemos ayudarle con nuestros servicios especializados diseñados para satisfacer todas sus expectativas en el mercado inmobiliario.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Service 1: Venta de Propiedades -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Venta de Propiedades</h2>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Ponemos a su disposición un amplio catálogo de propiedades en venta, desde casas familiares hasta departamentos modernos y lotes urbanos. Nuestro servicio incluye tasación profesional, asesoramiento personalizado y gestión completa de toda la documentación necesaria para una transacción segura y transparente.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Trabajamos con propiedades de diversos presupuestos y características, adaptándonos a las necesidades específicas de cada comprador. Nuestro equipo se encarga de verificar la situación legal de cada propiedad, asegurando que su inversión esté completamente respaldada.
+                        </p>
+                        <a href="venta.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition">
+                            Ver Propiedades en Venta <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Venta de Propiedades" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Alquiler -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alquiler" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Alquiler de Propiedades</h2>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Ofrecemos un servicio integral de alquiler tanto para propietarios como para inquilinos. Contamos con una amplia oferta de viviendas y locales comerciales en las mejores zonas de Villa Mercedes y San Luis, garantizando ubicaciones estratégicas y propiedades en excelente estado.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Nos encargamos de todo el proceso: desde la búsqueda de la propiedad ideal hasta la firma del contrato, pasando por la verificación de antecedentes y la gestión de garantías. Nuestro objetivo es facilitar el proceso para ambas partes, asegurando tranquilidad y confianza.
+                        </p>
+                        <a href="alquiler.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition">
+                            Ver Propiedades en Alquiler <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Terrenos -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Terrenos</h2>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Especialistas en la comercialización de terrenos urbanos y rurales. Ya sea que busque un lote para construir su casa soñada o un terreno con fines de inversión, contamos con opciones en las mejores ubicaciones de la región, todos con servicios o factibilidad de conexión.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Asesoramos sobre zonificación, uso de suelo y todos los aspectos legales necesarios para una compra segura. Nuestro conocimiento del mercado local nos permite ofrecerle las mejores oportunidades de inversión en terrenos.
+                        </p>
+                        <a href="terrenos.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition">
+                            Ver Terrenos Disponibles <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Terrenos" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Comercial -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Locales Comerciales" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Locales Comerciales</h2>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Comercializamos locales comerciales en ubicaciones estratégicas de alto tránsito, ideales para todo tipo de negocios. Nuestro portafolio incluye locales en centros comerciales, calles peatonales y zonas de alto valor comercial, adaptados a diferentes rubros y presupuestos.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Brindamos asesoramiento especializado sobre el potencial comercial de cada ubicación, análisis de flujo de clientes y proyecciones de rentabilidad. Nuestro conocimiento del mercado comercial local es su mejor aliado para encontrar el local perfecto para su negocio.
+                        </p>
+                        <a href="comercial.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition">
+                            Ver Locales Comerciales <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Tasaciones -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Tasaciones Profesionales</h2>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Realizamos tasaciones profesionales de todo tipo de propiedades con respaldo matriculado. Nuestro servicio de valuación se basa en análisis exhaustivos del mercado, características de la propiedad, ubicación y estado de conservación, proporcionándole un informe detallado y fundamentado.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Las tasaciones son esenciales para operaciones de compra-venta, herencias, división de bienes, garantías bancarias y seguros. Nuestros informes son aceptados por entidades bancarias y organismos oficiales, garantizando precisión y profesionalismo.
+                        </p>
+                        <a href="tasaciones.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition">
+                            Solicitar Tasación <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tasaciones" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6: Asesoramiento Legal -->
+            <div class="mb-20" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Asesoramiento Legal" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mr-4">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-gray-800">Asesoramiento Legal</h2>
+                        </div>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Brindamos asesoramiento legal completo en todas las operaciones inmobiliarias. Nuestro servicio incluye la revisión de documentación, verificación de títulos de propiedad, gestión de escrituras, tramitación de hipotecas y todo lo necesario para que su operación sea completamente segura y legal.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Trabajamos en coordinación con escribanos y abogados especializados, garantizando que cada paso del proceso cumpla con todos los requisitos legales. Su tranquilidad es nuestra prioridad, por eso nos encargamos de todos los aspectos legales de principio a fin.
+                        </p>
+                        <a href="asesoramiento.html" class="inline-block bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg transition">
+                            Más Información <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-primary text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">¿Necesita Asesoramiento?</h2>
+            <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="100">Contáctenos y le ayudaremos a encontrar la solución perfecta</p>
+            <a href="https://wa.me/5492657609278" class="bg-white hover:bg-gray-100 text-primary px-8 py-4 rounded-lg font-medium text-lg transition duration-300 inline-block" data-aos="fade-up" data-aos-delay="200">
+                <i class="fab fa-whatsapp mr-2"></i>Contactar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Inmobiliaria Casella & Casella</h3>
+                    <p class="text-gray-400 mb-4">Martillero Público M.P. 1062</p>
+                    <p class="text-gray-400">Tu confianza, nuestra mejor recomendación</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Betbeder 46, Villa Mercedes</p>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-mobile-alt mr-2"></i>2657-609278</p>
+                    <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i>horaciocasella@yahoo.com.ar</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><a href="venta.html" class="hover:text-white transition">Venta</a></li>
+                        <li><a href="alquiler.html" class="hover:text-white transition">Alquiler</a></li>
+                        <li><a href="terrenos.html" class="hover:text-white transition">Terrenos</a></li>
+                        <li><a href="comercial.html" class="hover:text-white transition">Comercial</a></li>
+                        <li><a href="tasaciones.html" class="hover:text-white transition">Tasaciones</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Inmobiliaria Casella & Casella. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5492657609278" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Mobile menu
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
