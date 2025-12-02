@@ -125,18 +125,14 @@
             transform: translateY(-2px);
         }
 
-        [data-theme='dark'] {
-            background-color: #1e293b;
-            color: #f8fafc;
-        }
     </style>
 </head>
-<body class="font-sans text-gray-800 transition-all duration-300" data-theme="light">
+<body class="font-sans text-gray-800">
     <!-- Header -->
-    <header class="bg-white dark:bg-dark shadow-lg sticky top-0 z-50 transition-all duration-300">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="../../index.html" class="text-xl font-bold text-primary dark:text-gold flex items-center">
-                <i class="fas fa-building text-primary dark:text-gold text-2xl mr-3"></i>
+            <a href="../../index.html" class="text-xl font-bold text-primary flex items-center">
+                <i class="fas fa-building text-primary text-2xl mr-3"></i>
                 <div class="flex flex-col">
                     <span class="text-lg">Inmobiliaria</span>
                     <span class="text-xl">Casella & Casella</span>
@@ -144,9 +140,6 @@
             </a>
 
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="text-gray-600 dark:text-gray-300">
-                    <i class="fas fa-moon text-2xl"></i>
-                </button>
                 <a href="../../index.html" class="bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg transition">
                     <i class="fas fa-arrow-left mr-2"></i>Volver
                 </a>
@@ -155,7 +148,7 @@
     </header>
 
     <!-- Hero Section with Gallery -->
-    <section class="bg-gray-100 dark:bg-gray-900 py-8">
+    <section class="bg-gray-100 py-8">
         <div class="container mx-auto px-4">
             <!-- Main Image Slider -->
             <div class="swiper mainSwiper rounded-xl overflow-hidden shadow-2xl mb-4" style="height: 500px;">
@@ -196,7 +189,7 @@
     </section>
 
     <!-- Property Details -->
-    <section class="py-12 bg-white dark:bg-dark">
+    <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Main Content -->
@@ -217,8 +210,8 @@
                                 </button>
                             </div>
                         </div>
-                        <h1 class="text-4xl font-bold mb-2 text-gray-800 dark:text-gray-100">[TITULO_PROPIEDAD]</h1>
-                        <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">
+                        <h1 class="text-4xl font-bold mb-2 text-gray-800">[TITULO_PROPIEDAD]</h1>
+                        <p class="text-xl text-gray-600 mb-4">
                             <i class="fas fa-map-marker-alt text-primary mr-2"></i>[UBICACION_COMPLETA]
                         </p>
                         <div class="text-4xl font-bold text-primary mb-2">[PRECIO]</div>
@@ -226,13 +219,13 @@
                     </div>
 
                     <!-- Features Grid -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 mb-8">
+                    <div class="bg-gray-50 rounded-xl p-6 mb-8">
                         <h2 class="text-2xl font-bold mb-6">Características Principales</h2>
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                             <div class="flex items-center">
                                 <i class="fas fa-ruler-combined text-primary text-2xl mr-3"></i>
                                 <div>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">Superficie</p>
+                                    <p class="text-sm text-gray-500">Superficie</p>
                                     <p class="font-bold">[SUPERFICIE] m²</p>
                                 </div>
                             </div>
@@ -257,7 +250,7 @@
                     <!-- Description -->
                     <div class="mb-8">
                         <h2 class="text-2xl font-bold mb-4">Descripción</h2>
-                        <div class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <div class="text-gray-700 leading-relaxed">
                             [DESCRIPCION_COMPLETA]
                         </div>
                     </div>
@@ -301,7 +294,7 @@
                         <h2 class="text-2xl font-bold mb-4">Servicios Cercanos</h2>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <!-- SERVICIO 1 -->
-                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
                                 <i class="fas fa-shopping-cart text-primary text-2xl mb-2"></i>
                                 <p class="text-sm">[SERVICIO_1]</p>
                             </div>
@@ -313,13 +306,13 @@
                 <!-- Sidebar -->
                 <div class="lg:col-span-1">
                     <!-- Contact Form -->
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 sticky top-24">
+                    <div class="bg-gray-50 rounded-xl p-6 sticky top-24">
                         <h3 class="text-xl font-bold mb-4">Consultar por esta Propiedad</h3>
 
                         <form onsubmit="return sendWhatsApp(event)">
                             <div class="mb-4">
                                 <label class="block mb-2 text-sm font-medium">Nombre Completo</label>
-                                <input type="text" id="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700">
+                                <input type="text" id="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                             </div>
 
                             <div class="mb-4">
@@ -334,24 +327,23 @@
 
                             <div class="mb-6">
                                 <label class="block mb-2 text-sm font-medium">Mensaje</label>
-                                <textarea id="message" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-gray-700" placeholder="Me interesa esta propiedad..."></textarea>
+                                <textarea id="message" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Me interesa esta propiedad..."></textarea>
                             </div>
 
                             <button type="submit" class="w-full bg-emerald hover:bg-emerald/90 text-white py-3 px-4 rounded-lg font-medium transition mb-3">
                                 <i class="fab fa-whatsapp mr-2"></i>Consultar por WhatsApp
                             </button>
 
-                            <a href="tel:02657424494" class="block w-full bg-primary hover:bg-secondary text-white py-3 px-4 rounded-lg font-medium transition text-center">
+                            <a href="tel:2657609278" class="block w-full bg-primary hover:bg-secondary text-white py-3 px-4 rounded-lg font-medium transition text-center">
                                 <i class="fas fa-phone mr-2"></i>Llamar Ahora
                             </a>
                         </form>
 
-                        <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <div class="mt-6 pt-6 border-t border-gray-200">
                             <h4 class="font-bold mb-3">Datos de Contacto</h4>
                             <div class="space-y-2 text-sm">
                                 <p><i class="fas fa-user text-primary mr-2"></i> Horacio Casella</p>
                                 <p><i class="fas fa-id-card text-primary mr-2"></i> M.P. 1062</p>
-                                <p><i class="fas fa-phone text-primary mr-2"></i> 02657-424494</p>
                                 <p><i class="fas fa-mobile text-primary mr-2"></i> 2657-609278</p>
                                 <p class="text-xs"><i class="fas fa-envelope text-primary mr-2"></i> horaciocasella@yahoo.com.ar</p>
                             </div>
@@ -363,24 +355,80 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 px-4">
-        <div class="container mx-auto text-center">
-            <div class="text-xl font-bold mb-2">
-                Inmobiliaria Casella & Casella
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-xl font-bold flex items-center mb-4">
+                        <i class="fas fa-building text-primary text-2xl mr-2"></i>
+                        <div class="flex flex-col">
+                            <span class="text-sm">Inmobiliaria</span>
+                            <span>Casella & Casella</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Tu confianza, nuestra mejor recomendación.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Navegación</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../../index.html" class="text-gray-400 hover:text-white transition">Inicio</a></li>
+                        <li><a href="../../pages/servicios.html" class="text-gray-400 hover:text-white transition">Servicios</a></li>
+                        <li><a href="../../pages/venta.html" class="text-gray-400 hover:text-white transition">Venta</a></li>
+                        <li><a href="../../pages/alquiler.html" class="text-gray-400 hover:text-white transition">Alquiler</a></li>
+                        <li><a href="../../pages/terrenos.html" class="text-gray-400 hover:text-white transition">Terrenos</a></li>
+                        <li><a href="../../pages/comercial.html" class="text-gray-400 hover:text-white transition">Comercial</a></li>
+                        <li><a href="../../pages/tasaciones.html" class="text-gray-400 hover:text-white transition">Tasaciones</a></li>
+                        <li><a href="../../pages/asesoramiento.html" class="text-gray-400 hover:text-white transition">Asesoramiento</a></li>
+                        <li><a href="../../pages/nosotros.html" class="text-gray-400 hover:text-white transition">Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Venta de Propiedades</li>
+                        <li>Alquiler</li>
+                        <li>Terrenos</li>
+                        <li>Comercial</li>
+                        <li>Tasaciones</li>
+                        <li>Asesoramiento Legal</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-2 mt-1"></i>
+                            <span>Betbeder 46, Villa Mercedes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-mobile-alt text-primary mr-2"></i>
+                            <a href="https://wa.me/5492657609278" class="hover:text-white transition">2657-609278</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-2"></i>
+                            <span class="text-sm">horaciocasella@yahoo.com.ar</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-gray-400 mb-4">Betbeder 46 – Villa Mercedes, San Luis</p>
-            <div class="flex justify-center space-x-4 mb-4">
-                <a href="#" class="text-gray-400 hover:text-white transition">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/5492657609278" target="_blank" class="text-gray-400 hover:text-emerald transition">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Inmobiliaria Casella & Casella. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5492657609278" target="_blank" class="text-gray-400 hover:text-emerald transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
-            <p class="text-gray-400 text-sm">© 2025 Inmobiliaria Casella & Casella. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -451,29 +499,6 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeLightbox();
-            }
-        });
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.body.setAttribute('data-theme', currentTheme);
-
-        if (currentTheme === 'dark') {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            if (newTheme === 'dark') {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
             }
         });
 
